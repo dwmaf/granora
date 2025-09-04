@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="Granora adalah startup agroteknologi yang membangun ekosistem pertanian sirkular dengan memanfaatkan sumber daya lokal dan limbah agro secara optimal.">
+    <meta name="author" content="Machmud Fajri">
+    <link rel="icon" href="images/Granora_logo.png">
+    <title>Granora</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS & Alpine.js -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Custom Tailwind Config (Optional) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'granora-primary': '#16a34a', // Green (Tailwind's green-600)
+                        'granora-accent': '#f59e0b',  // Yellow/Amber (Tailwind's amber-500)
+                        'granora-dark': '#2c3e50',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Simple scroll-padding-top for anchor links */
+        :target {
+            scroll-padding-top: 100px;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-700 font-sans">
+
+    <!-- ***** Header Area ***** -->
+    <header x-data="{ open: false }"
+        class="bg-white/80 backdrop-blur-md shadow-md fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="#welcome" class="flex items-center text-2xl font-bold text-gray-800">
+                    <img src="images/Granora_logo.png" alt="Granora Logo" class="w-10 h-10 mr-2">
+                    Granora
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index-redesign.html#welcome" class="text-gray-600 hover:text-granora-primary transition">Home</a>
+                    <a href="index-redesign.html#about" class="text-gray-600 hover:text-granora-primary transition">Challenges</a>
+                    <div x-data="{ dropdownOpen: false }" class="relative">
+                        <button @click="dropdownOpen = !dropdownOpen" @click.away="dropdownOpen = false"
+                            class="flex items-center text-gray-600 hover:text-granora-primary transition">
+                            Movement <i class="fas fa-chevron-down text-xs ml-2"></i>
+                        </button>
+                        <div x-show="dropdownOpen"
+                            class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
+                            <a href="granora-energy.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Granora Energy</a>
+                            <a href="granora-feed.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Granora Feed</a>
+                        </div>
+                    </div>
+                    <a href="index-redesign.html#about2" class="text-gray-600 hover:text-granora-primary transition">Impacts</a>
+                    <a href="#contact-us" class="text-gray-600 hover:text-granora-primary transition">Contact Us</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button @click="open = !open" class="text-gray-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div x-show="open" class="md:hidden mt-4">
+                <a href="#welcome" class="block py-2 px-4 text-sm hover:bg-gray-200 rounded">Home</a>
+                <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-200 rounded">Challenges</a>
+                <a href="granora-energy.html" class="block py-2 px-4 text-sm hover:bg-gray-200 rounded">Granora Energy</a>
+                <a href="granora-feed.html" class="block py-2 px-4 text-sm hover:bg-gray-200 rounded">Granora Feed</a>
+                <a href="#about2" class="block py-2 px-4 text-sm hover:bg-gray-200 rounded">Impacts</a>
+                <a href="#contact-us" class="block py-2 px-4 text-sm hover:bg-gray-200 rounded">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ***** Welcome Area ***** -->
+    <div id="welcome" class="relative h-screen min-h-[600px] bg-cover bg-center bg-no-repeat"
+        style="background-image: url('images/landing-page-2.png');">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative h-full flex items-center">
+            <div class="container mx-auto px-6">
+                <div class="w-full md:w-1/2 text-white text-center md:text-left">
+                    <h1 class="text-4xl lg:text-5xl font-bold leading-tight">What does <strong>Granora</strong> do?</h1>
+                    <p class="mt-4 text-lg">
+                        AgriTech Start-Up that builds a circular farming ecosystem by turning local resources and
+                        agro-waste into high-value products.
+                    </p>
+                    <p class="mt-4">
+                        Kami mengolah limbah pertanian menjadi biopellet energi terbarukan serta pakan ternak bergizi,
+                        mendukung konsep zero-waste dan memperkuat ketahanan pangan serta energi lokal.
+                    </p>
+                    <a href="#about"
+                        class="mt-8 inline-block bg-granora-primary hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105">
+                        Find Out More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Granora Energy Section ***** -->
+    <section id="granora-energy" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+                <div class="md:w-5/12">
+                    <img src="images/granora-energy.png" class="rounded-lg shadow-lg w-full" alt="Granora Energy">
+                </div>
+                <div class="md:w-7/12">
+                    <h2 class="text-3xl font-bold mb-4">Granora Energy</h2>
+                    <p class="text-justify">
+                        <b>Granora Energy</b> mengelola penggilingan padi dan pabrik pati sagu untuk membangun
+                        ekosistem pertanian sirkular. Penggilingan padi memberi layanan terjangkau dengan <b>rendemen
+                            &gt;75%</b>, mendukung petani dan ketahanan pangan Kubu Raya. Pabrik sagu memanfaatkan
+                        potensi <b>9.000 ha</b> lahan di Kapuas dan Ambawang dengan mengolah sagu jadi pati, bahan
+                        utama pakan ternak. Limbah kulit sagu dikombinasikan dengan sekam padi menjadi <b>biomassa</b>,
+                        yang digunakan untuk <b>co-firing PLTU di Kalbar</b>. Model ini <b>meningkatkan pendapatan
+                            petani</b>, memanfaatkan limbah, serta menghadirkan <b>solusi energi terbarukan</b> bagi
+                        daerah.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- ***** Contact Us Section ***** -->
+    <section id="contact-us" class="bg-granora-dark text-white">
+        <div class="flex flex-wrap">
+            <!-- Map -->
+            <div class="w-full md:w-1/2 h-80 md:h-auto">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1677.5118035858413!2d109.38374975403397!3d0.02486436257595161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1736176445658!5m2!1sid!2sid"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <!-- Contact Info -->
+            <div class="w-full md:w-1/2 p-8 lg:p-16 flex flex-col justify-center">
+                <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+                <ul class="space-y-4">
+                    <li><a href="mailto:info@nabbati.com" class="flex items-center hover:text-gray-300"><i
+                                class="fa fa-envelope w-6"></i> info@nabbati.com</a></li>
+                    <li><a href="mailto:machmudfajri@gmail.com" class="flex items-center hover:text-gray-300"><i
+                                class="fa fa-envelope w-6"></i> machmud@granora.com</a></li>
+                    <li><a href="https://www.instagram.com/granora" class="flex items-center hover:text-gray-300"><i
+                                class="fa fa-instagram w-6"></i> Granora</a></li>
+                    <li><a href="#" class="flex items-center hover:text-gray-300"><i class="fa fa-whatsapp w-6"></i>
+                            (+62) 896-4805-1979</a></li>
+                    <li class="flex items-start pt-2">
+                        <i class="fa fa-map-marker w-6 mt-1"></i>
+                        <span>Jl. Adisucipto Km 10,1 Kabupaten Kubu Raya, West Borneo - Indonesia</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ***** Footer ***** -->
+    <footer class="bg-gray-100 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-600">
+            <div class="flex justify-center items-center space-x-2">
+                <img src="images/Granora_logo.png" alt="Granora Logo" class="h-8">
+                <p>&copy; <span id="year"></span> Granora. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>
