@@ -18,6 +18,7 @@
     <!-- Tailwind CSS & Alpine.js -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -47,38 +48,39 @@
     </style>
 </head>
 
-<body class="bg-white text-gray-700 font-sans">
+<body x-data="{ activeSection: 'welcome' }" class="bg-white text-gray-700 font-sans">
 
     <!-- ***** Header Area ***** -->
-    <header x-data="{ open: false }"
-        class="bg-white/80 backdrop-blur-md shadow-md fixed top-0 left-0 right-0 z-50">
+    <header x-data="{ open: false }" class="bg-white/80 backdrop-blur-md shadow-md fixed top-0 left-0 right-0 z-50">
         <div class="container mx-auto px-6 py-3">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <a href="#welcome" class="flex items-center text-2xl font-bold text-gray-800">
-                    <img src="images/Granora_logo.png" alt="Granora Logo" class="w-10 h-10 mr-2">
+                    <img src="images/Granora_logo.png" alt="Granora Logo" class="h-10 mr-2">
                     Granora
                 </a>
 
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#welcome" class="text-gray-600 hover:text-granora-primary transition">Home</a>
-                    <a href="#about" class="text-gray-600 hover:text-granora-primary transition">Challenges</a>
+                    <a href="#welcome" class="hover:text-granora-primary transition">Home</a>
+                    <a href="#about" class="hover:text-granora-primary transition">Challenges</a>
                     <div x-data="{ dropdownOpen: false }" class="relative">
                         <button @click="dropdownOpen = !dropdownOpen" @click.away="dropdownOpen = false"
-                            class="flex items-center text-gray-600 hover:text-granora-primary transition">
+                            class="flex items-center hover:text-granora-primary transition">
                             Movement <i class="fas fa-chevron-down text-xs ml-2"></i>
                         </button>
                         <div x-show="dropdownOpen"
                             class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
                             <a href="granora-energy.html"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Granora Energy</a>
+                                class="block px-4 py-2 text-sm text-gray-700 hover:text-granora-primary">Granora
+                                Energy</a>
                             <a href="granora-feed.html"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Granora Feed</a>
+                                class="block px-4 py-2 text-sm text-gray-700 hover:text-granora-primary">Granora
+                                Feed</a>
                         </div>
                     </div>
-                    <a href="#about2" class="text-gray-600 hover:text-granora-primary transition">Impacts</a>
-                    <a href="#contact-us" class="text-gray-600 hover:text-granora-primary transition">Contact Us</a>
+                    <a href="#about2" class="hover:text-granora-primary transition">Impacts</a>
+                    <a href="#contact-us" class="hover:text-granora-primary transition">Contact Us</a>
                 </nav>
 
                 <!-- Mobile Menu Button -->
@@ -108,12 +110,12 @@
         <div class="relative h-full flex items-center">
             <div class="container mx-auto px-6">
                 <div class="w-full md:w-1/2 text-white text-center md:text-left">
-                    <h1 class="text-4xl lg:text-5xl font-bold leading-tight">What does <strong>Granora</strong> do?</h1>
-                    <p class="mt-4 text-lg">
+                    <h1 class="text-2xl lg:text-5xl font-bold leading-tight">What does <strong>Granora</strong> do?</h1>
+                    <p class="mt-4 text-md lg:text-lg">
                         AgriTech Start-Up that builds a circular farming ecosystem by turning local resources and
                         agro-waste into high-value products.
                     </p>
-                    <p class="mt-4">
+                    <p class="mt-4 text-md lg:text-lg">
                         Kami mengolah limbah pertanian menjadi biopellet energi terbarukan serta pakan ternak bergizi,
                         mendukung konsep zero-waste dan memperkuat ketahanan pangan serta energi lokal.
                     </p>
@@ -134,7 +136,7 @@
                     <img src="images/challenge.png" class="rounded-lg shadow-lg w-full" alt="Challenges">
                 </div>
                 <div class="md:w-7/12">
-                    <h2 class="text-3xl font-bold mb-4">The <strong>challenges</strong> we face</h2>
+                    <h2 class="text-3xl font-bold mb-4 text-granora-primary">The <strong>challenges</strong> we face</h2>
                     <div class="space-y-4 text-justify">
                         <p>Sejak berdiri pada tahun 2023, Granora berkomitmen mendukung keberlanjutan sektor pertanian
                             dan energi melalui solusi berbasis teknologi. Kami mengidentifikasi tantangan besar yang
@@ -153,57 +155,91 @@
         </div>
     </section>
 
+
     <!-- ***** Impacts Section (SDGs) ***** -->
-    <section id="about2" class="py-20 bg-gray-50">
+    <section id="about2" class="py-20">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold">Our Impact for SDGs</h2>
-                <p class="mt-2 text-lg text-gray-600">Building a sustainable future through innovation.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- SDG 1 -->
-                <div class="flex items-start space-x-4">
-                    <img src="images/sdg-1.png" alt="SDG 1" class="w-16 h-16 flex-shrink-0">
-                    <div>
-                        <h6 class="font-bold">No-Poverty</h6>
-                        <p class="text-sm text-gray-600">Empowering local farmers and creating job opportunities for
-                            over 100 people.</p>
-                    </div>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-5/12 rounded-lg overflow-hidden shadow-lg h-">
+                    <img src="images/fotosagu.jpg" class="w-full h-full object-cover" alt="Sagu">
                 </div>
-                <!-- SDG 2 -->
-                <div class="flex items-start space-x-4">
-                    <img src="images/sdg-2.png" alt="SDG 2" class="w-16 h-16 flex-shrink-0">
-                    <div>
-                        <h6 class="font-bold">Zero Hunger</h6>
-                        <p class="text-sm text-gray-600">Developing organic products as a sustainable food source to
-                            enhance food security.</p>
+                <div class="md:w-7/12">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-granora-primary">Vision</h2>
+                        <p class="mt-2 text-lg text-gray-600">"Building a sustainable future through sago-based innovation that supports
+                        food security, local community empowerment, and environmental
+                        conservation. Granora committed to being a pioneer in the green economic
+                        transformation creating eco-friendly products while generating positive
+                        impact for community well-being and environmental preservation."</p>
                     </div>
-                </div>
-                <!-- SDG 8 -->
-                <div class="flex items-start space-x-4">
-                    <img src="images/sdg-8.png" alt="SDG 8" class="w-16 h-16 flex-shrink-0">
-                    <div>
-                        <h6 class="font-bold">Decent Work & Economy Growth</h6>
-                        <p class="text-sm text-gray-600">Ensuring ethical business practices and enhancing local
-                            productivity.</p>
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-granora-primary">Our Impact for SDGs</h2>
+                        <p class="mt-2 text-lg text-gray-600">Building a sustainable future through innovation.</p>
                     </div>
-                </div>
-                <!-- SDG 12 -->
-                <div class="flex items-start space-x-4">
-                    <img src="images/sdg-12.png" alt="SDG 12" class="w-16 h-16 flex-shrink-0">
-                    <div>
-                        <h6 class="font-bold">Responsible Consumption</h6>
-                        <p class="text-sm text-gray-600">Transforming agricultural waste into value-added products to
-                            reduce environmental impact.</p>
-                    </div>
-                </div>
-                <!-- SDG 13 -->
-                <div class="flex items-start space-x-4 col-span-1 md:col-span-2 lg:col-span-1 lg:col-start-2">
-                    <img src="images/sdg-13.png" alt="SDG 13" class="w-16 h-16 flex-shrink-0">
-                    <div>
-                        <h6 class="font-bold">Climate Action</h6>
-                        <p class="text-sm text-gray-600">Preserving sago forests and reducing carbon emissions through
-                            sustainable practices.</p>
+                    <div class="flex flex-col gap-8">
+                        <!-- SDG 1 -->
+                        <div class="flex items-start space-x-4">
+                            <img src="images/sdg-1.png" alt="SDG 1" class="w-16 h-16 flex-shrink-0">
+                            <div>
+                                <h6 class="font-bold">No-Poverty</h6>
+                                <p class="text-sm text-gray-600">Through the empowerment of local farmers and
+                                    vulnerable
+                                    groups,
+                                    we
+                                    have created decent job opportunities and improved the livelihoods of
+                                    over 100 people in the communities surrounding our operational areas.</p>
+                            </div>
+                        </div>
+                        <!-- SDG 2 -->
+                        <div class="flex items-start space-x-4">
+                            <img src="images/sdg-2.png" alt="SDG 2" class="w-16 h-16 flex-shrink-0">
+                            <div>
+                                <h6 class="font-bold">Zero Hunger</h6>
+                                <p class="text-sm text-gray-600">Granora focuses on developing organic products as a
+                                    sustainable
+                                    food
+                                    source to enhance national food security.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- SDG 8 -->
+                        <div class="flex items-start space-x-4">
+                            <img src="images/sdg-8.png" alt="SDG 8" class="w-16 h-16 flex-shrink-0">
+                            <div>
+                                <h6 class="font-bold">Decent Work & Economy Growth</h6>
+                                <p class="text-sm text-gray-600">Granora ensures ethical and fair business practices
+                                    by
+                                    creating
+                                    sustainable employment opportunities and enhancing local
+                                    productivity.</p>
+                            </div>
+                        </div>
+                        <!-- SDG 12 -->
+                        <div class="flex items-start space-x-4">
+                            <img src="images/sdg-12.png" alt="SDG 12" class="w-16 h-16 flex-shrink-0">
+                            <div>
+                                <h6 class="font-bold">Responsible Consumption</h6>
+                                <p class="text-sm text-gray-600">We efficiently utilize agricultural waste by
+                                    transforming
+                                    it
+                                    into
+                                    valueadded products, reducing environmental impact, and promoting
+                                    sustainable consumption patterns.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- SDG 13 -->
+                        <div class="flex items-start space-x-4 col-span-1 md:col-span-2 lg:col-span-1 lg:col-start-2">
+                            <img src="images/sdg-13.png" alt="SDG 13" class="w-16 h-16 flex-shrink-0">
+                            <div>
+                                <h6 class="font-bold">Climate Action</h6>
+                                <p class="text-sm text-gray-600">Granora is committed to preserving sago forests and
+                                    reducing
+                                    carbon
+                                    emissions through sustainable and environmentally friendly production
+                                    practices.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -211,33 +247,32 @@
     </section>
 
     <!-- ***** Contact Us Section ***** -->
-    <section id="contact-us" class="bg-granora-dark text-white">
-        <div class="flex flex-wrap">
-            <!-- Map -->
-            <div class="w-full md:w-1/2 h-80 md:h-auto">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1677.5118035858413!2d109.38374975403397!3d0.02486436257595161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1736176445658!5m2!1sid!2sid"
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            <!-- Contact Info -->
-            <div class="w-full md:w-1/2 p-8 lg:p-16 flex flex-col justify-center">
-                <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
-                <ul class="space-y-4">
-                    <li><a href="mailto:info@nabbati.com" class="flex items-center hover:text-gray-300"><i
-                                class="fa fa-envelope w-6"></i> info@nabbati.com</a></li>
-                    <li><a href="mailto:machmudfajri@gmail.com" class="flex items-center hover:text-gray-300"><i
-                                class="fa fa-envelope w-6"></i> machmud@granora.com</a></li>
-                    <li><a href="https://www.instagram.com/granora" class="flex items-center hover:text-gray-300"><i
-                                class="fa fa-instagram w-6"></i> Granora</a></li>
-                    <li><a href="#" class="flex items-center hover:text-gray-300"><i class="fa fa-whatsapp w-6"></i>
-                            (+62) 896-4805-1979</a></li>
-                    <li class="flex items-start pt-2">
-                        <i class="fa fa-map-marker w-6 mt-1"></i>
-                        <span>Jl. Adisucipto Km 10,1 Kabupaten Kubu Raya, West Borneo - Indonesia</span>
-                    </li>
-                </ul>
-            </div>
+    <section id="contact-us" class=" text-white flex flex-wrap px-6">
+        <!-- Map -->
+        <div class="w-full md:w-1/2 h-80 md:h-auto">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1677.5118035858413!2d109.38374975403397!3d0.02486436257595161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1736176445658!5m2!1sid!2sid"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
+        <!-- Contact Info -->
+        <div class="w-full md:w-1/2 p-8 lg:p-16 flex flex-col justify-center bg-granora-dark">
+            <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+            <ul class="space-y-4">
+                <li><a href="mailto:info@nabbati.com" class="flex items-center hover:text-gray-300"><i
+                            class="fa fa-envelope w-6"></i> info@nabbati.com</a></li>
+                <li><a href="mailto:machmudfajri@gmail.com" class="flex items-center hover:text-gray-300"><i
+                            class="fa fa-envelope w-6"></i> machmud@granora.com</a></li>
+                <li><a href="https://www.instagram.com/granora" class="flex items-center hover:text-gray-300"><i
+                            class="fa fa-instagram w-6"></i> Granora</a></li>
+                <li><a href="#" class="flex items-center hover:text-gray-300"><i class="fa fa-whatsapp w-6"></i>
+                        (+62) 896-4805-1979</a></li>
+                <li class="flex items-start pt-2">
+                    <i class="fa fa-map-marker w-6 mt-1"></i>
+                    <span>Jl. Adisucipto Km 10,1 Kabupaten Kubu Raya, West Borneo - Indonesia</span>
+                </li>
+            </ul>
+        </div>
+
     </section>
 
     <!-- ***** Footer ***** -->
