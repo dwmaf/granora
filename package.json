@@ -1,0 +1,21 @@
+{
+  "name": "granora",
+  "version": "1.0.0",
+  "description": "g\u0000r\u0000a\u0000n\u0000o\u0000r\u0000a\u0000 \u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "alpinejs": "^3.15.0",
+    "tailwindcss": "^4.1.12",
+    "vite": "^7.1.4"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.12"
+  }
+}

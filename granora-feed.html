@@ -16,9 +16,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS & Alpine.js -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link href="/src/index.css" rel="stylesheet"> -->
+<script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -55,15 +55,15 @@
         <div class="container mx-auto px-6 py-3">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
-                <a href="index-redesign.html#welcome" class="flex items-center text-2xl font-bold text-gray-800">
+                <a href="index-granora.html#welcome" class="flex items-center text-2xl font-bold text-gray-800">
                     <img src="images/Granora_logo.png" alt="Granora Logo" class=" h-10 mr-2">
                     Granora
                 </a>
 
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="index-redesign.html#welcome" class="text-gray-600 hover:text-granora-primary transition">Home</a>
-                    <a href="index-redesign.html#about" class="text-gray-600 hover:text-granora-primary transition">Challenges</a>
+                    <a href="index-granora.html#welcome" class="text-gray-600 hover:text-granora-primary transition">Home</a>
+                    <a href="index-granora.html#about" class="text-gray-600 hover:text-granora-primary transition">Challenges</a>
                     <div x-data="{ dropdownOpen: false }" class="relative">
                         <button @click="dropdownOpen = !dropdownOpen" @click.away="dropdownOpen = false"
                             class="flex items-center text-gray-600 hover:text-granora-primary transition">
@@ -77,8 +77,8 @@
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Granora Feed</a>
                         </div>
                     </div>
-                    <a href="index-redesign.html#about2" class="text-gray-600 hover:text-granora-primary transition">Impacts</a>
-                    <a href="index-redesign.html#contact-us" class="text-gray-600 hover:text-granora-primary transition">Contact Us</a>
+                    <a href="index-granora.html#about2" class="text-gray-600 hover:text-granora-primary transition">Impacts</a>
+                    <a href="index-granora.html#contact-us" class="text-gray-600 hover:text-granora-primary transition">Contact Us</a>
                 </nav>
 
                 <!-- Mobile Menu Button -->
@@ -91,12 +91,12 @@
 
             <!-- Mobile Menu -->
             <div x-show="open" class="md:hidden mt-4">
-                <a href="#welcome" class="block py-2 px-4 text-sm hover:bg-gray-200 rounded">Home</a>
-                <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-200 rounded">Challenges</a>
+                <a href="index-granora#welcome" class="block py-2 px-4 text-sm hover:bg-gray-200 rounded">Home</a>
+                <a href="index-granora#about" class="block py-2 px-4 text-sm hover:bg-gray-200 rounded">Challenges</a>
                 <a href="granora-energy.html" class="block py-2 px-4 text-sm hover:bg-gray-200 rounded">Granora Energy</a>
                 <a href="granora-feed.html" class="block py-2 px-4 text-sm hover:bg-gray-200 rounded">Granora Feed</a>
-                <a href="#about2" class="block py-2 px-4 text-sm hover:bg-gray-200 rounded">Impacts</a>
-                <a href="#contact-us" class="block py-2 px-4 text-sm hover:bg-gray-200 rounded">Contact Us</a>
+                <a href="index-granora#about2" class="block py-2 px-4 text-sm hover:bg-gray-200 rounded">Impacts</a>
+                <a href="index-granora#contact-us" class="block py-2 px-4 text-sm hover:bg-gray-200 rounded">Contact Us</a>
             </div>
         </div>
     </header>
